@@ -21,11 +21,8 @@ def tela_regiao():
                         isregiao.create_regioes(Mregiao.Regiao)
                      
         elif escolha_crud == 'READ':
-                        button_consulta_padrao= st.button('Consulta Padrão')
-                        if button_consulta_padrao:
-                                isregiao.read_regioes()
-                        slider_preco= st.slider('Preço',min_value=0,max_value=1000,step=5)
-                        button_consultar_preco=st.button('Preços')
+                isregiao.read_regioes()
+  
         elif escolha_crud == 'DELETE':
                 isregiao.read_regioes()
                 with st.form(key='deletar_regiao'):
