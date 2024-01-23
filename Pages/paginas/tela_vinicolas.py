@@ -22,8 +22,17 @@ def tela_vinicola():
             Mvinicolas.regiaoID=input_regiao            #---
 
             isvinicolas.create_vinicolas(Mvinicolas)
-    if escolha_crud == 'READ':
+    elif escolha_crud == 'READ':
             isvinicolas.read_vinicolas()
     #if escolha_crud == 'UPADATE':
 
-    #if escolha_crud == 'DELETE':
+    elif escolha_crud == 'DELETE':
+            isvinicolas.read_vinicolas()
+            with st.form(key='deletar_vinicolas'):
+                input_condicao= st.number_input('Digite o ID Para Realizar a Exclusão', step=1)
+                input_confirm_exclusao= st.form_submit_button('Excluir')
+
+            if input_confirm_exclusao:
+                st.write('funcionou')
+                st.write(input_condicao)
+                isvinicolas.delete_vinicolas(input_condicao)

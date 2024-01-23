@@ -21,5 +21,16 @@ def tela_vinho():
             Mvinhos.vinicolaID= input_vinicolaid
 
             isvinhos.create_vinhos(Mvinhos)
-    if escolha_crud == 'READ':
+    elif escolha_crud == 'READ':
         isvinhos.read_vinhos()
+
+    elif escolha_crud == 'DELETE':
+                isvinhos.read_vinhos()
+                with st.form(key='deletar_vinhos'):
+                        input_condicao= st.number_input('Digite o ID Para Realizar a Exclusão', step=1)
+                        input_confirm_exclusao= st.form_submit_button('Excluir')
+
+                if input_confirm_exclusao:
+                        st.write('funcionou')
+                        st.write(input_condicao)
+                        isvinhos.delete_vinhos(input_condicao)

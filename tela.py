@@ -10,7 +10,7 @@ if escolha == 'Regiões':
   pagereg.tela_regiao()
  
 
-      
+    
 #vinicolas
 if escolha == 'Vinicolas':
     pagevini.tela_vinicola()
