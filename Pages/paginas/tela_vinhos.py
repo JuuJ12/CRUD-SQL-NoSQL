@@ -3,7 +3,7 @@ import controllers.crud_vinhos as isvinhos
 import models.vinhos as Mvinhos
 
 def tela_vinho():
-    escolha_crud = st.selectbox('Qual Operação do CRUD Você Deseja Fazer', options=['CREATE','READ','UPADATE','DELETE'])
+    escolha_crud = st.selectbox('Qual Operação do CRUD Você Deseja Fazer', options=['CREATE','READ','UPDATE','DELETE'])
 
     if escolha_crud == 'CREATE':
         with st.form(key='include_vinhos'):
@@ -23,7 +23,28 @@ def tela_vinho():
             isvinhos.create_vinhos(Mvinhos)
     elif escolha_crud == 'READ':
         isvinhos.read_vinhos()
+        st.title('Consulta  Com Condição')
+        input_escolha = st.selectbox('O que Você Deseja Ver', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+        input_coluna = st.selectbox('Selecione a Coluna', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+        input_condicao = st.text_input('Digite a Condição de Busca')
+        input_confirm_read = st.button('Pesquisar')
+                            
+        if input_confirm_read:
+                isvinhos.read_vinhos_condicao(input_escolha, input_coluna, input_condicao)
+    elif escolha_crud == 'UPDATE':
+            st.title('UPDATE')
+            isvinhos.read_vinhos()
+            input_coluna_up= st.selectbox('Coluna que Você Deseja Atualizar ', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+            novo_Valor= st.text_input('Digite o Novo Valor')
+            coluna_condicao= st.selectbox('Qual Coluna Você Vai Usar Como Condição: ', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+            condicao= st.text_input('Digite a Condição')
 
+                    
+            input_confirm_update = st.button('Atualizar')
+                            
+            if input_confirm_update:
+                    isvinhos.update_vinhos(input_coluna_up,novo_Valor,coluna_condicao,condicao)
+    
     elif escolha_crud == 'DELETE':
                 isvinhos.read_vinhos()
                 with st.form(key='deletar_vinhos'):

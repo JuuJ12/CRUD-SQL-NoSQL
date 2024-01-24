@@ -2,7 +2,7 @@ import streamlit as st
 import Pages.paginas.tela_regioes as pagereg
 import Pages.paginas.tela_vinicolas as pagevini
 import Pages.paginas.tela_vinhos as pagevinho
-st.title('CRUD TESTE')
+st.title('CRUD')
 escolha =st.selectbox('Selecione o DataFrame de Sua escolha',options=['Regiões','Vinicolas','Vinhos'])
 
 #regioes
