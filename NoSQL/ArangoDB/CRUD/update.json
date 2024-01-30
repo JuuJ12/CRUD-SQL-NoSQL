@@ -1,0 +1,5 @@
+UPDATE "_key:1677" WITH
+
+{
+    "precoVinho": 200
+} IN Vinicola
