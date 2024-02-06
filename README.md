@@ -15,7 +15,7 @@ git clone https://github.com/JuuJ12/CRUD-SQL-NoSQL
 
 ```
 ```
-Vá ao Terminal e Execute o Comando streamlit run main.py
+Vá ao Terminal e Execute o Comando streamlit run tela.py
 ```
 ________________________________________________
 
