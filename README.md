@@ -14,6 +14,16 @@ CRUD NoSQL Utilizando ArangoDB.
 git clone https://github.com/JuuJ12/CRUD-SQL-NoSQL
 
 ```
+
+```
+Instale as Bibliotecas Necessarias
+pip install streamlit
+pip install mysql-connector-python
+```
+```
+Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados no Arquivo "conectar_com_banco.py"
+```
+
 ```
 Vá ao Terminal e Execute o Comando streamlit run tela.py
 ```
