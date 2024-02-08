@@ -1,4 +1,4 @@
-import services.conec_py_sql as db
+import services.conectar_com_banco as db
 import streamlit as st
 import pandas as pd
 def create_vinicolas(vinicolas):
