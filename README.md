@@ -25,7 +25,7 @@ Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados v
 ```
 
 ```
-Vá ao Terminal e Execute o Comando streamlit run tela.py
+Vá ao Terminal e Execute o Comando streamlit run main.py
 ```
 ________________________________________________
 
