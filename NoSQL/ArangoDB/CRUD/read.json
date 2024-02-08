@@ -1,0 +1,2 @@
+FOR doc IN Vinicola
+    RETURN doc
