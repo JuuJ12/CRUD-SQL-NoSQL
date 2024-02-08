@@ -21,7 +21,7 @@ pip install streamlit
 pip install mysql-connector-python
 ```
 ```
-Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados no Arquivo "conectar_com_banco.py"
+Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados  vá na pasta SERVICES > conectar_com_banco.py
 ```
 
 ```
