@@ -22,6 +22,7 @@ pip install mysql-connector-python
 ```
 ```
 Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados vá na pasta SERVICES > conectar_com_banco.py
+Execute o Arquivo Se Não Apontar Nenhum Erro, a Conecxão Foi Feita Com Sucesso.
 ```
 
 ```
