@@ -53,6 +53,4 @@ def tela_vinicola():
                 input_confirm_exclusao= st.form_submit_button('Excluir')
 
             if input_confirm_exclusao:
-                st.write('funcionou')
-                st.write(input_condicao)
                 isvinicolas.delete_vinicolas(input_condicao)

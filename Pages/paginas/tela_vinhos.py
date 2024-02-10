@@ -52,6 +52,4 @@ def tela_vinho():
                         input_confirm_exclusao= st.form_submit_button('Excluir')
 
                 if input_confirm_exclusao:
-                        st.write('funcionou')
-                        st.write(input_condicao)
                         isvinhos.delete_vinhos(input_condicao)

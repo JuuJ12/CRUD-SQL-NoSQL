@@ -58,8 +58,6 @@ def tela_regiao():
                         input_confirm_exclusao= st.form_submit_button('Excluir')
 
                 if input_confirm_exclusao:
-                        st.write('funcionou')
-                        st.write(input_condicao)
                         isregiao.delete_regioes(input_coluna,input_condicao)
                                         
 
