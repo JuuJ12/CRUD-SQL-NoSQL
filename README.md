@@ -16,17 +16,19 @@ git clone https://github.com/JuuJ12/CRUD-SQL-NoSQL
 ```
 
 ```
-Instale as Bibliotecas Necessarias
+Instale as Bibliotecas Necessárias
 pip install streamlit
 pip install mysql-connector-python
 ```
-```
-Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados  vá na pasta SERVICES > conectar_com_banco.py
-```
 
-```
-Vá ao Terminal e Execute o Comando streamlit run tela.py
-```
+Insira as Informações Necessárias Para Conectar-se Com o Seu Banco de Dados vá na pasta SERVICES > conectar_com_banco.py
+
+Execute o Arquivo Se Não Apontar Nenhum Erro, a Conexão Foi Feita Com Sucesso.
+
+
+
+Vá ao Terminal e Execute o Comando streamlit run main.py
+
 ________________________________________________
 
 ## Uso do CRUD NoSQL:
