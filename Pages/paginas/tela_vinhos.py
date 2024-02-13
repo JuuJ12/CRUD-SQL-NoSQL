@@ -25,7 +25,7 @@ def tela_vinho():
         isvinhos.read_vinhos()
         st.title('Consulta  Com Condição')
         input_escolha = st.selectbox('O que Você Deseja Ver', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
-        input_coluna = st.selectbox('Selecione a Coluna', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+        input_coluna = st.selectbox('Selecione a Coluna Que Atenderá a Sua Condição de Busca', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
         input_condicao = st.text_input('Digite a Condição de Busca')
         input_confirm_read = st.button('Pesquisar')
                             

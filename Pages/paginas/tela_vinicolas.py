@@ -26,7 +26,7 @@ def tela_vinicola():
             isvinicolas.read_vinicolas()
             st.title('Consulta  Com Condição')
             input_escolha = st.selectbox('O que Você Deseja Ver', options=['vinicolaID','nomeVinicola','foneVinicola','regiaoID'])
-            input_coluna = st.selectbox('Selecione a Coluna', options=['vinicolaID','nomeVinicola','foneVinicola','regiaoID'])
+            input_coluna = st.selectbox('Selecione a Coluna Que Atenderá a Sua Condição de Busca', options=['vinicolaID','nomeVinicola','foneVinicola','regiaoID'])
             input_condicao = st.text_input('Digite a Condição de Busca')
             input_confirm_read = st.button('Pesquisar')
                             

@@ -2,6 +2,7 @@ import services.conectar_com_banco as db
 import streamlit as st
 import pandas as pd
 
+
 def create_regioes(regiao):
     comando_create_regioes= (f"""INSERT INTO REGIOES(regiaoID,nomeRegiao,estadoRegiao)
                                     VALUES('{regiao.regiaoID}','{regiao.nomeRegiao}','{regiao.estadoRegiao}')""")
@@ -19,10 +20,10 @@ def read_regioes_condicao(escolha,coluna,condicao):
     comando_read_regioes= (f"""SELECT {escolha} FROM REGIOES
                                     WHERE {coluna} = %s
                                     """)
+    
     db.cursor.execute(comando_read_regioes,(condicao,))
     res = pd.DataFrame(db.cursor.fetchall(), columns =([escolha]))
     st.table(res)
-
 def update_regioes(coluna,novo_Valor,coluna_cond,condicao):
     comando_read_regioes= (f"""UPDATE REGIOES 
                                 SET {coluna} = %s
