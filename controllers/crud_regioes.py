@@ -1,13 +1,17 @@
 import services.conectar_com_banco as db
 import streamlit as st
 import pandas as pd
+import mysql.connector
 
 
 def create_regioes(regiao):
-    comando_create_regioes= (f"""INSERT INTO REGIOES(regiaoID,nomeRegiao,estadoRegiao)
-                                    VALUES('{regiao.regiaoID}','{regiao.nomeRegiao}','{regiao.estadoRegiao}')""")
-    db.cursor.execute(comando_create_regioes)
-    db.conexao.commit()
+    try:
+        comando_create_regioes= (f"""INSERT INTO REGIOES(regiaoID,nomeRegiao,estadoRegiao)
+                                        VALUES('{regiao.regiaoID}','{regiao.nomeRegiao}','{regiao.estadoRegiao}')""")
+        db.cursor.execute(comando_create_regioes)
+        db.conexao.commit()
+    except mysql.connector.IntegrityError as e:
+        st.error("Você está violando a restrição de integridade de FK. Por favor, verifique se a sua FK já está cadastrada.")
 
 def read_regioes():
     comando_read_regioes= (f"""SELECT * FROM REGIOES

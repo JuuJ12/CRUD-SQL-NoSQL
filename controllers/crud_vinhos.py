@@ -1,11 +1,15 @@
 import services.conectar_com_banco as db
 import streamlit as st
 import pandas as pd
+import mysql.connector
 def create_vinhos(vinhos):
-    comando_create_vinhos= (f"""INSERT INTO vinhos(vinhoID,nomeVinho,tipoVinho,precoVinho,vinicolaID)
-                                    VALUES({vinhos.vinhoID},'{vinhos.nomeVinho}','{vinhos.tipoVinho}',{vinhos.precoVinho},{vinhos.vinicolaID})""")
-    db.cursor.execute(comando_create_vinhos)
-    db.conexao.commit()
+    try:
+        comando_create_vinhos= (f"""INSERT INTO vinhos(vinhoID,nomeVinho,tipoVinho,precoVinho,vinicolaID)
+                                        VALUES({vinhos.vinhoID},'{vinhos.nomeVinho}','{vinhos.tipoVinho}',{vinhos.precoVinho},{vinhos.vinicolaID})""")
+        db.cursor.execute(comando_create_vinhos)
+        db.conexao.commit()
+    except mysql.connector.IntegrityError as e:
+        st.error("Você Está Violando a Restrição de Integridade Referencial de FK. Por Favor, Verifique Se a sua FK Já Está Cadastrada.")
 
 def read_vinhos():
     comando_read_vinhos= (f"""SELECT * FROM vinhos
