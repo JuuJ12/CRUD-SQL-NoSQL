@@ -40,3 +40,15 @@ def delete_vinhos(ID):
                                     """)
     db.cursor.execute(comando_delete_vinhos,(ID,))
     db.conexao.commit()
+
+def ponto_extra():
+    comando_min_max= (f"""SELECT tipoVinho,
+       max(precoVinho) AS MaisCaro,
+       min(precoVinho) AS MaisBarato,
+       (SELECT nomeVinho FROM vinhos WHERE tipoVinho = v.tipoVinho AND precoVinho = max(v.precoVinho)) AS VinhoMaisCaro,
+       (SELECT nomeVinho FROM vinhos WHERE tipoVinho = v.tipoVinho AND precoVinho = min(v.precoVinho)) AS VinhoMaisBarato
+        FROM vinhos v
+        GROUP BY tipoVinho""")
+    db.cursor.execute(comando_min_max)
+    res = pd.DataFrame(db.cursor.fetchall(), columns=('Tipo do Vinho','Maior Valor','Menor Valor','Vinho Mais Caro','Vinho Mais Barato'))
+    st.table(res)

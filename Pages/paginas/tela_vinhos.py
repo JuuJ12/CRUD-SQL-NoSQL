@@ -31,6 +31,9 @@ def tela_vinho():
                             
         if input_confirm_read:
                 isvinhos.read_vinhos_condicao(input_escolha, input_coluna, input_condicao)
+        input_precos =st.button('Mais Caros e Mais Baratos')
+        if input_precos:
+                isvinhos.ponto_extra()
     elif escolha_crud == 'UPDATE':
             st.title('UPDATE')
             isvinhos.read_vinhos()
