@@ -1,0 +1,5 @@
+UPDATE "0000" WITH
+
+{
+    "precoVinho": 200
+} IN Vinhos
