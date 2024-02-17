@@ -53,7 +53,7 @@ INSERT {
 REMOVE "0000" IN Vinhos
 ```
 
-"0000" e "Vinicola" devem ser alterado para a key e coleção do conteúdo que você deseja remover, respectivamente.
+"0000" e "Vinhos" devem ser alterado para a key e coleção do conteúdo que você deseja remover, respectivamente.
 
 ### Read:
 
