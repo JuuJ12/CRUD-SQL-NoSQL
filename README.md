@@ -37,40 +37,41 @@ ________________________________________________
 
 ```
 INSERT {
+    "vinhoID": 90,
     "nomeVinho": "V9",
-    "tipoVinho": "rosé",
-    "precoVinho": 400.00,
-    "vinicolaID": "6" 
-} IN Vinicola
+    "tipoVinho": "branco",
+    "precoVinho": 500,
+    "vinicolaID": 3
+} IN Vinhos
 ```
 
-"Vinicola" deve ser alterado para o nome de sua coleção.
+"Vinhos" deve ser alterado para o nome de sua coleção, assim como os valores.
 
 ### Delete:
 
 ```
-REMOVE "1780" IN Vinicola
+REMOVE "0000" IN Vinhos
 ```
 
-"1780" deve ser alterado para a key do conteúdo que você deseja remover.
+"0000" e "Vinhos" devem ser alterado para a key e coleção do conteúdo que você deseja remover, respectivamente.
 
 ### Read:
 
 ```
-FOR doc IN Vinicola
-    RETURN doc
+FOR vinho IN Vinhos
+  RETURN vinho
 ```
 
-"Vinicola" deve ser alterado para o nome de sua coleção.
+"Vinhos" deve ser alterado para o nome de sua coleção.
 
 ### Update:
 
 ```
-UPDATE "1677" WITH
+UPDATE "0000" WITH
 
 {
     "precoVinho": 200
-} IN Vinicola
+} IN Vinhos
 ```
 
-"1677" deve ser alterado para a key do conteúdo que você deseja remover, e, "Vinicola" deve ser alterado para o nome de sua coleção.
+"0000" deve ser alterado para a key do conteúdo que você deseja remover, e, "Vinhos" deve ser alterado para o nome de sua coleção, assim como os valores.

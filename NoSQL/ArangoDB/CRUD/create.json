@@ -1,6 +1,7 @@
 INSERT {
+    "vinhoID": 90,
     "nomeVinho": "V9",
-    "tipoVinho": "rosé",
-    "precoVinho": 400.00,
-    "vinicolaID": "6" 
-} IN Vinicola
+    "tipoVinho": "branco",
+    "precoVinho": 500,
+    "vinicolaID": 3
+} IN Vinhos

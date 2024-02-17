@@ -1,2 +1,2 @@
-FOR doc IN Vinicola
-    RETURN doc
+FOR vinho IN Vinhos
+  RETURN vinho
