@@ -1,6 +1,0 @@
-INSERT {
-    "nomeVinho": "V9",
-    "tipoVinho": "rosé",
-    "precoVinho": 400.00,
-    "vinicolaID": "6" 
-} IN Vinicola
