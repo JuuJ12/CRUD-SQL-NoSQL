@@ -2,6 +2,7 @@ import services.conectar_com_banco as db
 import streamlit as st
 import pandas as pd
 import mysql.connector
+
 def create_vinhos(vinhos):
     try:
         comando_create_vinhos= (f"""INSERT INTO vinhos(vinhoID,nomeVinho,tipoVinho,precoVinho,vinicolaID)
