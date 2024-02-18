@@ -51,12 +51,11 @@ def tela_regiao():
         elif escolha_crud == 'DELETE':
                 st.title('DELETE')
                 isregiao.read_regioes()
-                with st.form(key='deletar_regiao'):
-                        input_coluna= st.selectbox('Selecione a Coluna', options=['regiaoID','nomeRegiao','estadoRegiao'])
-                        input_condicao= st.text_input('Digite a Condição de Exclusão')
-                        input_confirm_exclusao= st.form_submit_button('Excluir')
+                input_excluir = st.selectbox('O que Você Deseja Excluir', options=['regiaoID','nomeRegiao','estadoRegiao'])
+                input_condicao = st.text_input('Digite a Condição de Exclusão')
+                input_confirm_exclusao= st.button('Excluir')
 
                 if input_confirm_exclusao:
-                        isregiao.delete_regioes(input_coluna,input_condicao)
+                        isregiao.delete_regioes(input_excluir,input_condicao)
                                         
 

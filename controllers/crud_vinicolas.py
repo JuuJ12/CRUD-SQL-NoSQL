@@ -34,9 +34,9 @@ def update_vinicolas(coluna,novo_Valor,coluna_cond,condicao):
     db.cursor.execute(comando_read_vinicolas,(novo_Valor,condicao))
     db.cursor.fetchall()
 
-def delete_vinicolas(ID):
+def delete_vinicolas(coluna,condicao):
     comando_delete_vinicolas = (f"""DELETE FROM vinicolas
-                                        WHERE vinicolaID = %s
+                                        WHERE {coluna} = %s
                                     """)
-    db.cursor.execute(comando_delete_vinicolas,(ID,))
+    db.cursor.execute(comando_delete_vinicolas,(condicao,))
     db.conexao.commit()

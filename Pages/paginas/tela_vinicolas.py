@@ -48,9 +48,10 @@ def tela_vinicola():
 
     elif escolha_crud == 'DELETE':
             isvinicolas.read_vinicolas()
-            with st.form(key='deletar_vinicolas'):
-                input_condicao= st.number_input('Digite o ID Para Realizar a Exclusão', step=1)
-                input_confirm_exclusao= st.form_submit_button('Excluir')
+            input_excluir = st.selectbox('O que Você Deseja Excluir', options=['vinicolaID','nomeVinicola','foneVinicola','regiaoID'])
+            input_condicao = st.text_input('Digite a Condição de exclusão')
+            input_confirm_exclusao= st.button('Excluir')
 
             if input_confirm_exclusao:
-                isvinicolas.delete_vinicolas(input_condicao)
+                isvinicolas.delete_vinicolas(input_excluir,input_condicao)
+                

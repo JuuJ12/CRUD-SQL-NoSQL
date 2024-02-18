@@ -50,9 +50,9 @@ def tela_vinho():
     
     elif escolha_crud == 'DELETE':
                 isvinhos.read_vinhos()
-                with st.form(key='deletar_vinhos'):
-                        input_condicao= st.number_input('Digite o ID Para Realizar a Exclusão', step=1)
-                        input_confirm_exclusao= st.form_submit_button('Excluir')
+                input_excluir = st.selectbox('O que Você Deseja Excluir', options=['vinhoID','nomeVinho','tipoVinho','precoVinho','vinicolaID'])
+                input_condicao = st.text_input('Digite a Condição de Exclusão')
+                input_confirm_exclusao= st.button('Excluir')
 
                 if input_confirm_exclusao:
-                        isvinhos.delete_vinhos(input_condicao)
+                        isvinhos.delete_vinhos(input_excluir,input_condicao)

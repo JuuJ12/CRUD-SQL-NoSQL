@@ -35,11 +35,11 @@ def read_vinhos_condicao(escolha,coluna,condicao):
     res = pd.DataFrame(db.cursor.fetchall(), columns =([escolha]))
     st.table(res)
 
-def delete_vinhos(ID):
+def delete_vinhos(coluna,condicao):
     comando_delete_vinhos = (f"""DELETE FROM vinhos
-                                        WHERE vinhoID = %s
+                                        WHERE {coluna} = %s
                                     """)
-    db.cursor.execute(comando_delete_vinhos,(ID,))
+    db.cursor.execute(comando_delete_vinhos,(condicao,))
     db.conexao.commit()
 
 def ponto_extra():
