@@ -53,3 +53,40 @@ def ponto_extra():
     db.cursor.execute(comando_min_max)
     res = pd.DataFrame(db.cursor.fetchall(), columns=('Tipo do Vinho','Maior Valor','Menor Valor','Vinho Mais Caro','Vinho Mais Barato'))
     st.table(res)
+
+def verificar_trigger_existente():
+    try:
+        # Verifica se o trigger já existe no banco de dados
+        db.cursor.execute("""SELECT *
+                            FROM INFORMATION_SCHEMA.TRIGGERS
+                            WHERE TRIGGER_NAME = 'valor_max'""")
+        trigger_existente = db.cursor.fetchone()
+        
+        # Se o trigger já existir, retorna True
+        if trigger_existente:
+            return True
+        else:
+            return False
+    except mysql.connector.Error as e:
+        st.error(f"Erro ao verificar se o trigger existe: {e}")
+        return False
+
+
+
+# Função para criar o trigger
+def criar_trigger():
+    try:
+        comando_criar_trigger = f"""CREATE TRIGGER valor_max
+                                        BEFORE INSERT ON vinhos
+                                        FOR EACH ROW
+                                        BEGIN
+                                            IF NEW.precoVinho > 1000.00 THEN
+                                                SET NEW.precoVinho = 950.00;
+                                            END IF;
+                                        END;
+                                    """
+        db.cursor.execute(comando_criar_trigger)
+        db.conexao.commit()
+        st.success('Trigger criado com sucesso!')
+    except mysql.connector.Error as e:
+        st.error(f"Erro ao criar o trigger: {e}")
