@@ -35,7 +35,7 @@ def update_vinicolas(coluna,novo_Valor,coluna_cond,condicao):
                                     """)
     db.cursor.execute(comando_read_vinicolas,(novo_Valor,condicao))
     db.cursor.fetchall()
-    st.success('Atualizaçaõ Realizada Com Sucesso',icon='✅')
+    st.success('Atualização Realizada Com Sucesso',icon='✅')
 def delete_vinicolas(coluna,condicao):
     comando_delete_vinicolas = (f"""DELETE FROM vinicolas
                                         WHERE {coluna} = %s
