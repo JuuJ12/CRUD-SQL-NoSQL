@@ -9,6 +9,7 @@ def create_vinicolas(vinicolas):
                                         VALUES({vinicolas.vinicolaID},'{vinicolas.nomeVinicola}',{vinicolas.foneVinicola},'{vinicolas.regiaoID}')""")
         db.cursor.execute(comando_create_vinicolas)
         db.conexao.commit()
+        st.success('Vinicola Criada Com Sucesso', icon='✅')
     except mysql.connector.IntegrityError as e:
          st.error("Você Está Violando a Restrição de Integridade Referencial de FK. Por Favor, Verifique Se a sua FK Já Está Cadastrada.")
 
@@ -18,6 +19,7 @@ def read_vinicolas():
     db.cursor.execute(comando_read_vinicolas)
     res = pd.DataFrame(db.cursor.fetchall(), columns=('ID da Vinicola','Nome da Vinicola','Contato','Região'))
     st.table(res)
+
 def read_vinicolas_condicao(escolha,coluna,condicao):
     comando_read_vinicolas= (f"""SELECT {escolha} FROM vinicolas
                                     WHERE {coluna} = %s
@@ -33,10 +35,11 @@ def update_vinicolas(coluna,novo_Valor,coluna_cond,condicao):
                                     """)
     db.cursor.execute(comando_read_vinicolas,(novo_Valor,condicao))
     db.cursor.fetchall()
-
+    st.success('Atualizaçaõ Realizada Com Sucesso',icon='✅')
 def delete_vinicolas(coluna,condicao):
     comando_delete_vinicolas = (f"""DELETE FROM vinicolas
                                         WHERE {coluna} = %s
                                     """)
     db.cursor.execute(comando_delete_vinicolas,(condicao,))
     db.conexao.commit()
+    st.success('Remoção Realizada Com Sucesso', icon='✅')

@@ -9,6 +9,7 @@ def create_vinhos(vinhos):
                                         VALUES({vinhos.vinhoID},'{vinhos.nomeVinho}','{vinhos.tipoVinho}',{vinhos.precoVinho},{vinhos.vinicolaID})""")
         db.cursor.execute(comando_create_vinhos)
         db.conexao.commit()
+        st.success('Vinho Inserido Com Sucesso',icon='✅')
     except mysql.connector.IntegrityError as e:
         st.error("Você Está Violando a Restrição de Integridade Referencial de FK. Por Favor, Verifique Se a sua FK Já Está Cadastrada.")
 
@@ -26,6 +27,7 @@ def update_vinhos(coluna,novo_Valor,coluna_cond,condicao):
                                     """)
     db.cursor.execute(comando_read_vinhos,(novo_Valor,condicao))
     db.cursor.fetchall()
+    st.success('Atualização Bem Sucedida',icon='✅')
 
 def read_vinhos_condicao(escolha,coluna,condicao):
     comando_read_vinhos= (f"""SELECT {escolha} FROM vinhos
@@ -41,7 +43,8 @@ def delete_vinhos(coluna,condicao):
                                     """)
     db.cursor.execute(comando_delete_vinhos,(condicao,))
     db.conexao.commit()
-
+    st.success('Remoção Realizada Com Sucesso',icon='✅')
+    
 def ponto_extra():
     comando_min_max= (f"""SELECT tipoVinho,
        max(precoVinho) AS MaisCaro,
